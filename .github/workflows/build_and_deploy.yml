@@ -134,7 +134,7 @@ jobs:
       run: echo "ACTIONS_CHANGED=true" >> $GITHUB_ENV
 
     - name: Login to DockerHub Registry 🔢
-      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ env.DOCKERHUB_USERNAME }} --password-stdin || true
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin || true
 
     - name: Pull latest${{ matrix.image.tag_ext }} Docker image for caching
       run: docker pull rasa/financial-demo:latest || true
